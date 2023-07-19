@@ -1,16 +1,17 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import StakeGold from './components/StakeGold';
+// import StakeGold from './components/gold';
+// import gold from './components/gold';
+import Gold from './components/gold';
 import { Routes, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 function App() {
   return (
     <div className="App">
       <Navbar/>
-
       <Routes>
       <Route path="/" element={<LandingPage/>}/>
-      <Route path="/StakeGold" element={<StakeGold/>}/>
+      <Route path="/Gold" element={<Gold/>}/>
       </Routes>
     </div>
   );

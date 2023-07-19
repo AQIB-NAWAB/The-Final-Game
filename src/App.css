@@ -2,25 +2,73 @@
   font-family: "font-iceland";
   src: url('./assets/fonts/rax9HiuFsdMNOnWPaKtMARJYk0o.woff2');
 }
+@font-face {
+  font-family: "sans-serif";
+  src: url('./assets/fonts/Montserrat\,sans-serif.woff2');
+}
 
 *{
-  /* font-family: "font-iceland"; */
   font-family: sans-serif;
 }
 body{
   background: black !important;
-
 }
 
+/* ======== navbar style ========== */
+.navbar{
+  background-image: url('./assets/images/bg-nav.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
 ul li a{
   font-family: font-iceland;
 }
+ul li a:hover{
+  color: lightgray !important;
+}
 .wallet{
   font-family: font-iceland !important;
+  border-radius: 5px !important;
+
 }
+.wallet:hover{
+  background-color: #202b1f !important;
+}
+
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 330px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 7px 9px;
+  text-decoration: none;
+  display: block;
+}
+
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* ========= navbar style close ========== */
+
+
 /* =========landing page style =========== */
 .landingpage-video-div{
-  background-image: url('./assets/images/bg-mirror.jpg');
+  /* background-image: url('./assets/images/bg-mirror.jpg'); */
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -32,13 +80,70 @@ ul li a{
   background-repeat: no-repeat;
   height: 100vh;
 }
+.sub-heading2{
+  font-size: 16px;
+}
 .landingpage-bg3-div{
-  background-image: url('./assets/images/bg-3.jpg');
+  color: white !important;
+  /* background-image: url('./assets/images/bg-3.jpg'); */
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  height: 100vh;
+  background-size: cover;
+  height: 150vh;
+  margin-bottom: 20px;
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url('./assets/images/bg-3.jpg');
 }
+
+.landingpage-bg4-div{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+  url('./assets/images/bg4.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 130vh;
+}
+
+.landingpage-bg5-div{
+  background-image: url('./assets/images/bg-characters.jpg');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 70vh;
+}
+.landingpage-bg5-div-inner{
+  width: 65%;
+  margin: 0 auto;
+}
+
+.landingpage-bg6-div{
+  background-position: end;
+  background-size: cover;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  /* height: 120vh; */
+}
+.landingpage-bg7-div{
+  background-position: end;
+  background-size: cover;
+  /* object-fit: cover; */
+  background-repeat: no-repeat;
+  /* height: 120vh; */
+  padding-top: 50px;
+}
+.landingpage-bg8-div{
+  background-position: end;
+  background-size: cover;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  /* height: 100vh; */
+  padding-bottom: 50px;
+}
+.tabs:hover{
+  cursor: pointer;
+}
+
 /* ======================== */
 .banner{
   background-image: url('./assets/images/bg-mirror.jpg') !important;
@@ -73,3 +178,227 @@ ul li a{
   gap: 60px;
   text-decoration: underline;
 }
+.community_list p{
+  font-family: font-iceland !important;
+}
+
+
+/* .scrolling-section {
+  height: 100vh;
+  
+}
+
+.scroll-appear {
+  transition: transform 0.5s;
+}
+
+.scroll-appear.show {
+  opacity: 1;
+} */
+
+
+@media (max-width:650px) {
+  .navbar_logo{
+    width: 210px !important;
+  }
+  .wallet{
+    /* width: 100px; */
+    font-size: 20px !important;
+    padding: 5px 10px !important;
+  }
+  .heading{
+    font-size: 70px !important;
+  }
+  .sub_heading{
+    font-size: 22px !important;
+  }
+  
+}
+
+@media (max-width:450px) {
+  .menu_icon{
+    font-size: 35px !important;
+  }
+  .navbar_logo{
+    width: 170px !important;
+  }
+  .wallet{
+    /* width: 100px; */
+    font-size: 18px !important;
+    padding: 5px 10px !important;
+  }
+  
+}
+@media (max-width:767px) {
+  .landingpage-video-div{
+    background-image: unset !important;
+  }
+  .heading{
+    font-size: 70px !important;
+  }
+  .sub_heading{
+    font-size: 24px !important;
+  }
+  .landingpage-bg2-div{
+  background-image: url('./assets/images/bg-about-A-mobile.jpg') !important;
+  padding: 0px 50px !important;
+  height: 170vh !important;
+  background-size: cover !important;
+  }
+  .landingpage-bg2-div-column1{
+    margin-top: 100px !important;
+  }
+  .heading2{
+    font-size: 50px !important;
+  }
+  .sub-heading2{
+    font-size: 16px !important;
+    font-weight: 700 !important;
+  }
+
+  .landingpage-bg3-div{
+    /* background-image: url('./assets/images/bg-3.jpg'); */
+    height: 180vh !important;
+    margin-bottom: 20px !important;
+    background-image:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('./assets/images/bg-graphics-mobile.jpg') !important;
+    color: black !important;
+    padding: 40px 40px 0px 40px !important;
+  }
+ 
+  .landingpage-bg3-div-inner p{
+    font-size: 16px !important;
+  }
+  .poweredBy{
+    margin-top: 600px !important;
+  }
+  .noPay{
+    margin-top: 130px !important;
+  }
+  .short-session{
+    margin-top: 130px !important;
+  }
+  .bottom_img{
+    margin-top: -110px !important;
+  }
+  .builtOn-solana{
+    margin-top: 850px !important;
+    padding: 0px 50px;
+  }
+  .landingpage-bg4-div{
+    background-image: unset !important;
+    text-align: center;
+    margin-bottom: 800px;
+    padding: 0px 30px;
+  }
+  .column1{
+    margin-top: 20px !important;
+  }
+  .column1 img{
+    width: 60% !important;
+  }
+  .column2{
+    margin-top: unset !important;
+  }
+  .transittest-img{
+    margin-top: -30px !important;
+  }
+  .landingpage-bg5-div-inner{
+    padding-top: 50px !important;
+  }
+  .landingpage-bg5-div{
+    padding: 0px 30px !important;
+  }
+  .landingpage-bg6-div-img{
+    width: 65%;
+  }
+ .landingpage-bg7-div-img{
+  width: 70%;
+ }
+ .landingpage-bg8-div-img{
+  width: 70%;
+ }
+ .transittest1{
+  /* margin-top: -70px !important; */
+  height: 20vh;
+ }
+}
+
+@media (max-width:561px) {
+  .builtOn-solana{
+    margin-top: 1150px !important;
+    padding: 0px 20px !important;
+  }
+  .builtOn-solana p{
+    font-size: 18px !important;
+  }
+  .landingpage-bg4-div{
+    padding: unset !important;
+    margin-bottom: 900px !important;
+    height: 150vh !important;
+  }
+  .column2 div{
+    margin-top: unset !important;
+  }
+ 
+  .poweredBy{
+    margin-top: 550px !important;
+  }
+  .noPay{
+    margin-top: 160px !important;
+  }
+  .short-session{
+    margin-top: 60px !important;
+  }
+  .builtOn-solana{
+    margin-top: 1000px !important;
+  }
+  .heading2{
+    margin-bottom: 50px !important;
+  }
+  .column1 img{
+    width: 100% !important;
+  }
+  .landingpage-bg5-div{
+    padding: 50px 30px 0px 30px !important;
+    height: 80vh;
+  }
+  .landingpage-bg5-div-inner{
+    width: 100%;
+  }
+  .transittest-img{
+    /* margin-top: -40px !important; */
+    height: 30vh;
+    margin-top: -80px !important;
+  }
+  .landingpage-bg7-div-img{
+    width: 100%;
+   }
+   .landingpage-bg6-div-img{
+    width: 100%;
+  }
+  .landingpage-bg8-div-img{
+    width: 100%;
+    margin-top: 50px;
+   }
+   .landingpage-bg8-div{
+    padding-bottom: 50px !important;
+   }
+   .transittest1{
+    margin-top: -70px !important;
+    height: 20vh;
+   }
+   .aboutUs-div{
+    margin-bottom: 30px;
+   }
+   .aboutus_main_div{
+    margin-bottom: unset !important;
+   }
+  
+}
+
+
+
+
+
