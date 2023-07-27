@@ -4,7 +4,7 @@ const Community = () => {
   return (
     <>
       <div className="text-center mb-0 text-white pt-2 pt-md-5">
-        <h1 className="community mb-4" style={{ fontFamily: "font-iceland", fontSize:"50px" }}>
+        {/* <h1 className="community mb-4" style={{ fontFamily: "font-iceland", fontSize:"50px" }}>
           JOIN OUR COMMUNITY
         </h1>
         <div className='py-5 d-none d-md-block' style={{paddingLeft:"90px", paddingRight:"90px"}}>
@@ -37,14 +37,13 @@ const Community = () => {
           wider range of players, and as such, we will introduce more casual
           modes that appeal to diverse audiences of all ages.
         </p>
-        </div>
+        </div> */}
         <div className="d-block d-md-flex fs-5 justify-content-center community_list">
           <p>TWITTER</p>
           <p>TELEGRAM</p>
           <p>DISCORD</p>
-          <p>MEDIUM</p>
+          <p>INSTAGRAM</p>
           <p>YOUTUBE</p>
-          <p>FACEBOOK</p>
         </div>
       </div>
 
