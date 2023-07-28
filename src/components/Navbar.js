@@ -32,7 +32,7 @@ const Navbar = () => {
           </div> */}
         
           <div
-            className="collapse navbar-collapse w-60 justify-content-center"
+            className="collapse navbar_menu navbar-collapse h-100 py-5  w-60 justify-content-center"
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav gap-4">

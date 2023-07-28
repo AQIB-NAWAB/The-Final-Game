@@ -270,7 +270,7 @@ const LandingPage = () => {
           </div>
           <Row
             lg={12}
-            className="m-0 text-white align-items-center justify-content-center"
+            className="m-0 text-white align-items-center justify-content-center gap-5"
           >
             <Col lg={3} className="noPay">
               <div className="text-center">
@@ -285,13 +285,19 @@ const LandingPage = () => {
                 </div>
               </div>
             </Col>
-            <Col lg={4} className="">
-              <div className="text-center">
-                {/* <h3 style={{ fontFamily: "font-iceland", fontSize: "25px" }}>
-                  POWERED BY
-                </h3>
-                <img className="mt-3 mt-md-2" width="210px" src={logoUnreal} alt="" /> */}
+            <Col lg={3} className="">
+            <div className="text-center">
+                <img className="mb-4 mb-md-5 free-to-play" width="280px" src={logoUnreal} alt="" />
+                <div className="">
+                  <h1 style={{ fontFamily: "font-iceland ", fontSize: "55px",marginTop:"20px" }}>
+                  POWERED BY	
+                  </h1>
+                  <p style={{fontSize:"18px", letterSpacing:"1px"}}>
+                  Play our free-to-play NFT-based multiplayer shooter game and earn real-life assets
+                  </p>
+                </div>
               </div>
+
             </Col>
             <Col lg={3} className=" short-session">
               <div className="text-center">
@@ -353,8 +359,8 @@ const LandingPage = () => {
             Polygon
           </h1>
 
-          <Row className="justify-content-around m-0">
-            <Col lg={5}>
+          <Row className="justify-content-around m-0 features">
+            <Col lg={5} style={{display:"flex ",flexDirection:"column",gap:"40px"}}>
               <div className="mb-5 mb-md-0">
                 <div className="d-flex justify-content-center gap-3">
                   <h3
@@ -399,7 +405,7 @@ const LandingPage = () => {
                 </p>
               </div>
             </Col>
-            <Col lg={5}>
+            <Col lg={5} style={{display:"flex ",flexDirection:"column",gap:"40px"}}>
               <div className="mb-5 mb-md-0">
                 <div className="d-flex justify-content-center gap-3 align-items-center">
                   <h3
@@ -425,8 +431,8 @@ const LandingPage = () => {
                   </h3>
                   {/* <img width="42px" height="42px" src={stardust} alt="" /> */}
                 </div>
-                <p className="mt-3" style={{ fontSize: "19px" }}>
-                <span className="fw-bold">Polygon</span> has a large and active community of developers and users, which provides a supportive environment for developers who are building games on the platform.
+                <p className="mt-3 " style={{ fontSize: "19px" }}>
+                <span className="fw-bold ">Polygon</span> has a large and active community of developers and users, which provides a supportive environment for developers who are building games on the platform.
                 </p>
               </div>
             </Col>
@@ -449,7 +455,7 @@ const LandingPage = () => {
               className="order-1 order-lg-2 column2"
               style={{ marginTop: "30px" }}
             >
-              <div className="" style={{ marginTop: "70px" }}>
+              <div className="gameStory" style={{ marginTop: "70px" }}>
                 <h3
                   style={{
                     color: "",
@@ -469,7 +475,7 @@ const LandingPage = () => {
                 Siege Builders: Clash of Legends invites you to embark on a thrilling journey in a realm torn by conflict. Unleash your combat skills and architectural innovation to shape the destiny of Eldoria. Each battle tests your mettle, pushing you to overcome ancient guardians, unlock secrets, and confront your inner demons. Rise above the chaos, build your legend, and claim the Crown of Legends.
                 </p>
                 
-                <p>
+                <p style={{ fontSize: "19px" }}>
                 Prepare for an epic adventure where valour, strategy, and creativity intertwine. Join the ranks of the Siege Builders, experience intense battles, and unleash your ingenuity in constructing fortifications. Forge alliances, unite factions, and become a legend in Eldoria. Will you seize the opportunity to shape the future of a war-torn world and leave your mark in Siege Builders: Clash of Legends?
                 </p>
               </div>
@@ -500,7 +506,7 @@ const LandingPage = () => {
               className="order-1 order-lg-2 column2"
               style={{ marginTop: "140px" }}
             >
-              <div className="px-3 ps-lg-5" style={{ marginTop: "70px" }}>
+              <div className="px-3 ps-lg-5 gameplay" style={{ marginTop: "70px" }}>
                 <h3
                   style={{
                     fontSize: "25px",
@@ -1102,7 +1108,7 @@ const LandingPage = () => {
                 <p style={{ fontFamily: "font-iceland", fontSize: "23px" }}>
                   NIKOLAI PETROVICH (CEO)
                 </p>
-                <Icon className="instagram" fontSize="40px" icon="mdi:instagram" />
+                <Icon className="instagram" fontSize="40px" icon="mdi:linkedin" />
               </div>
             </Col>
             <Col sm={4} md={3}>
@@ -1120,7 +1126,7 @@ const LandingPage = () => {
                 <p style={{ fontFamily: "font-iceland", fontSize: "23px" }}>
                   NIKOLAI PETROVICH ( CEO)
                 </p>
-                <Icon className="instagram" fontSize="40px" icon="mdi:instagram" />
+                <Icon className="instagram" fontSize="40px" icon="mdi:linkedin" />
               </div>
             </Col>
             <Col sm={4} md={3}>
@@ -1139,7 +1145,7 @@ const LandingPage = () => {
                   NIKOLAI PETROVICH
                   (CEO)
                 </p>
-                <Icon className="instagram" fontSize="40px" icon="mdi:instagram" />
+                <Icon className="instagram" fontSize="40px" icon="mdi:linkedin" />
               </div>
             </Col>
             <Col sm={4} md={3}>
@@ -1158,7 +1164,7 @@ const LandingPage = () => {
                   NIKOLAI PETROVICH
                   (CEO)
                 </p>
-                <Icon className="instagram" fontSize="40px" icon="mdi:instagram" />
+                <Icon className="instagram" fontSize="40px" icon="mdi:linkedin" />
 
               </div>
             </Col>
