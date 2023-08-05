@@ -39,29 +39,29 @@ const Community = () => {
         </p>
         </div> */}
         <div className="d-block d-md-flex fs-5 justify-content-center community_list">
-          <p>TWITTER</p>
+        <a href="https://twitter.com/SiegeBuilders?t=aL8eFDd16P9Kaa34T9J3nQ&s=09" target="_blank" style={{color:"white"}}> <p> TWITTER </p></a>
           <p>TELEGRAM</p>
           <p>DISCORD</p>
           <p>INSTAGRAM</p>
-          <p>YOUTUBE</p>
+          <a href="https://www.youtube.com/channel/UCyeKTJ0C5xqwZrJc4gTpHjA" target="_blank" style={{color:"white"}}><p>YOUTUBE</p></a>
         </div>
       </div>
 
       <div className="text-center mb-5 text-white pt-5">
         <p className="mb-4" style={{ fontSize: "15px" }}>
           All screenshots and content are © of their respective owners.
-          Copyright © 2021 NAKM Corp.
+          Copyright © 2023 Siege Builders.
         </p>
         <div
           style={{ fontSize: "18px" }}
-          className="d-flex justify-content-center community_list"
+          className="d-flex justify-content-center community_list "
         >
-          <p>PRIVACY POLICY</p>
-          <p>TERMS AND CONDITIONS</p>
+          <span>PRIVACY POLICY</span>
+          <span>TERMS AND CONDITIONS</span>
         </div>
         <div>
           <p style={{ fontSize: "14px" }}>
-            More info:<span>devs@cryowar.com</span>
+            More info:<span>mauroblanco@opengamesbuilders.com</span>
           </p>
         </div>
       </div>

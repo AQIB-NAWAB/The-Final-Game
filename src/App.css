@@ -14,8 +14,45 @@ body{
   background: black !important;
 }
 /*===== screen scroll text animation style ===== */
+.slider{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  animation: moving 30s linear infinite ;
+}
+@keyframes moving {
+  0%{
+    transform: perspective(1000px) rotateY(0deg);
 
+  }
+  100%{
+    transform: perspective(1000px) rotateY(360deg);
 
+  }
+  
+}
+.slider span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:100% ;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform :rotateY(calc(var(--i)*80deg)) translateZ(350px);
+  background-color: gray;
+}
+.slider span img{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: 2s;
+}
 #hero {
   /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://source.unsplash.com/1600x900/?city); */
   /* background-size: cover;
@@ -124,10 +161,60 @@ ul li a:hover{
 
 /* =========landing page style =========== */
 .landingpage-video-div{
-  /* background-image: url('./assets/images/bg-mirror.jpg'); */
+
   background-position: center;
   background-size: cover;
-  height: 50vh;
+  height: 70vh;
+
+  
+}
+.desktopVideo{
+  position: absolute;
+  width: 95.6%;
+  height: 85.5%;
+  top: 46%;
+  left: 50%;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+
+}
+.landingpage-video-div .video{
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  object-fit: cover !important; 
+  opacity: 0.6;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.landingpage-video-div div{
+  padding-top: 50px;
+}
+.heroBG{
+  background-size: cover !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  align-items: center;
+  
+}
+.heroBG button{
+  width: fit-content;
+margin-top: 40px;
+border: none;
+outline: none;
+padding: 10px 20px;
+border-radius: 4px;
+font-size: 17px;
+font-weight: bolder;
+background-color: brown;
+color: white;
+
 }
 .landingpage-bg2-div{
   background-image: url('./assets/images/new-1.jpg');
@@ -157,7 +244,7 @@ ul li a:hover{
 .sub-heading2{
   font-size: 18px;
   margin: 20px 0px;
-  
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 }
 .gameplay h5{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -165,8 +252,12 @@ ul li a:hover{
 
 }
 .gameplay p{
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-  line-height: 26px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 23px;
+  font-size: 18px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.897);
+  text-shadow:11px solid  black;
 }
 .game-story{
   
@@ -186,12 +277,12 @@ ul li a:hover{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   padding-top: 70px;
   background-image:
   linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
   url('./assets/images/ai-2.jpg');
-  height: 160vh;
+  height: 140vh;
 }
 .landingpage-bg3-div-inner{
   margin-bottom: 150px !important;
@@ -215,7 +306,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 240vh;
+  height: 205vh !important;
 }
 .landingpage-bgStory-div{
   /* background-image: url('./assets/images/bg-characters.jpg'); */
@@ -296,12 +387,155 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .community_list{
   gap: 60px;
-  text-decoration: underline;
 }
 .community_list p{
+  text-decoration: underline;
   font-family: font-iceland !important;
 }
+.community_list span{
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+.landingpage-bg7-div-img{
+  height:500px ;
+}
+.landingpage-bg8-div-img{
+  height:500px ;
+}
+.characters_container {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 50px 20px; /* Reduced padding for better appearance */
+  gap: 30px;
+  margin-top: 200px;
+  margin-bottom: 50px;
+}
 
+.characters_container .character {
+    width: 400px;
+  height: 400px;
+  padding: 20px ;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Added to center the text vertically */
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background color */
+  transition: background-color 0.3s; /* Smooth hover transition */
+  background-image: url("https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=600");
+  background-position: center;
+  background-size: cover;
+}
+
+.characters_container .character:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Darken the background on hover */
+}
+
+.character span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px; /* Slightly increased font size */
+  font-weight: bold;
+}
+
+.characters_container .character img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px; /* Added border radius to the image */
+}
+.modal-background {
+  background-color:rgba(0, 0, 0, 0.63);
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.modal-background .modal-content {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: cente  r;
+  gap: 20px;
+  width:29%;
+  margin: 0px auto;
+}
+.modal-background .modal-content form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;align-items: center;
+  padding-bottom: 20px;
+}
+
+.modal-content input {
+  padding: 10px 25px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.modal-content button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Optional animation for modal appearance */
+.modal-content {
+  opacity: 0;
+  transform: translateY(-50%);
+  animation: slideIn 0.3s forwards;
+}
+.modal-content.closing {
+  animation: fadeOut 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.3s;
+}
+@keyframes slideIn {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @media (max-width: 1162px) {
   ul li a{
@@ -349,8 +583,15 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     /* background-color: black; */
     
   }
+  .modal-content{
+    width: 50% !important;
+  }
   .landingpage-video-div div{
-      width: 80% !important;
+      width: 96% !important;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      
     }
   .landingpage-video-div div h1{
     font-size: 60px !important;
@@ -378,6 +619,11 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     url('./assets/images/ai-2.jpg');
     height: 270vh;
    }
+.landingpage-video-div div .heading{
+font-size: 50px !important;
+margin: 0px;
+padding: 0px;
+}
 
    
 }
@@ -418,7 +664,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-image: unset !important;
   }
   .heading{
-    font-size: 70px !important;
+    font-size: 50px !important;
   }
   .sub_heading{
     font-size: 24px !important;
@@ -507,7 +753,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0 auto;
   }
  .landingpage-bg7-div-img{
-  width: 70%;
+  height: 348px;
  }
  .landingpage-bg8-div-inner{
   padding-top: 80px;
@@ -515,11 +761,13 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0 auto;
  }
  .landingpage-bg8-div-img{
-  width: 70%;
- }
+  object-fit: cover;
+  height: 348px;
+
+}
  .transittest1{
   /* margin-top: -70px !important; */
-  height: 20vh;
+  height: 90vh;
  }
  
  .aboutUs-div p{
@@ -534,6 +782,9 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
   .landingpage-bgStory-div{
     
+  }
+  .heading{
+    font-size: 70px !important;
   }
   .navbar_logo{
     width: 100px !important;
@@ -636,8 +887,22 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 
 @media (max-width:450px) {
+  .landingpage-video-div{
+    height: 70vh !important;
+
+  }
+  .landingpage-video-div div{
+    margin-top: -50px;
+  }
+.landingpage-video-div .video{
+  object-fit: cover;
+  height: 100% !important;
+}
   .menu_icon{
     font-size: 35px !important;
+  }
+  .modal-content{
+    width: 80% !important;
   }
   .navbar_logo{
     width: 90px !important;
@@ -664,12 +929,20 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     url('./assets/images/ai-2.jpg');
     height: 200vh;
    }
+   .heading{
+    font-size: 0px !important;
+    margin-top: 100px !important;
+   }
+  .landingpage-bg4-div img{
+    height: 350px;
+
+  }
   
 }
 
 @media (max-width: 408px) {
   .landingpage-video-div{
-    height: 80vh !important;
+    height: 100vh !important;
   }
 
   .landingpage-bg2-div{
@@ -678,9 +951,12 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   .builtOn-solana{
       margin-top: 100px !important;
     }
-  .landingpage-bg4-div{
-
+  .landingpage-bg4-div  img{
+    height:300px;
+  
   } 
+
+  
   .noPay{
     margin-top: -50px !important;
   }
@@ -719,7 +995,24 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 100px !important;
   }
   .landingpage-video-div div{
-    bottom: 0% !important;
+    padding-top: 0px !important;
+  }
+  .landingpage-video-div{
+    padding-top: 0px !important;
+    margin-top:0px !important ;
+    height: 90vh !important;
+  }
+  .landingpage-video-div div{
+    padding-top: 0px;
+    margin-top: 0px;
+    border: 0px;
+  }
+  .video {
+    width: 100%;
+    height: 100%;
+    background-color: magenta;
+    object-fit: cover;
+    opacity: 0.4 !important;
   }
   .landingpage-bg3-div{
     color: white !important;
@@ -727,12 +1020,12 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-bottom: 20px;
+    margin-bottom: 150px !important;
     padding-top: 70px;
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('./assets/images/ai-2.jpg');
-    height: 300vh;
+    height: 240vh !important;
    }
 }
 
@@ -755,6 +1048,9 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   .builtOn-solana{
     margin-top: 50px !important;
   }
+  .landingpage-video-div{
+    height: 70vh !important;
+  }
 
   .landingpage-bg3-div{
     color: white !important;
@@ -767,7 +1063,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('./assets/images/ai-2.jpg');
-    height: 270vh;
+    height: 190vh !important;
    }
   .landingpage-bg7-div-inner h1{
     font-size: 60px !important;

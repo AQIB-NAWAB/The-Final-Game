@@ -1,18 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import tranimg from "../assets/images/bg-transit-bottom.png";
-import bg4 from "../assets/images/bg4.png";
+
 import logoCryowar from "../assets/images/Cryowar-win-01.png";
 import logoCryowarWatch from "../assets/images/Cryowar-stopwatchs-01.png";
 import logoUnreal from "../assets/images/logo-unreal-hor.png";
-import solana from "../assets/images/Solana.png";
-import serum from "../assets/images/serum-dex.png";
-import stardust from "../assets/images/stardust.png";
-import mobile from "../assets/images/mobile.png";
-import transittest from "../assets/images/transit-test.png";
+
 import transittest1 from "../assets/images/transit-test (1).png";
-import Heavy2 from "../assets/images/Heavy2_Idle.png";
-import Valkyrie1 from "../assets/images/Valkyrie1_Idle.png";
 import Heavy1 from "../assets/images/bg-heavy-1.jpg";
 import Heavy3 from "../assets/images/bg-heavy-3.jpg";
 import bgvalkyrie1 from "../assets/images/bg-valkyrie-1.jpg";
@@ -21,18 +14,39 @@ import bgcenturion1 from "../assets/images/bg-centurion-1.jpg";
 import bgcenturion2 from "../assets/images/bg-centurion-2.jpg";
 import Centurion1_Idle from "../assets/images/Centurion1_Idle.png";
 import Centurion3_Idle from "../assets/images/Centurion3_Idle.png";
-import bw_IMG_5246 from "../assets/images/bw_IMG_5246.jpg";
+
 import polygon from '../assets/images/polygon.png'
 import Community from "./community";
-import Navbar from "./Navbar";
+
+import team1 from "../assets/images/team1.png"
+import team2 from "../assets/images/team2.png"
+import team3 from "../assets/images/team3.png"
+import team4 from "../assets/images/team4.png"
+import team5 from "../assets/images/team5.png"
+import team6 from "../assets/images/team6.png"
+
+import chatLink from "../assets/images/chatlink.png"
+import bitMark from "../assets/images/bitmark.png"
+import immutable from "../assets/images/immutable.png"
+import aws from "../assets/images/aws.png"
+
+
+import videoBg from "../assets/video/hero.mp4"
+
+import poster from "../assets/images/OGB ORIGNAL LOGO-1.png"
 import { Icon } from '@iconify/react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-
+import desktopPicture from "../assets/images/desktopPicture.png"
+import desktopVideo from "../assets/video/desktopVideo.mp4"
+import CustomModal from "./Modal";
 const LandingPage = () => {
   const [backgroundImage, setBackgroundImage] = useState(Heavy1);
   const [backgroundImage2, setBackgroundImage2] = useState(bgvalkyrie1);
   const [backgroundImage3, setBackgroundImage3] = useState(bgcenturion1);
   const [image, setImage] = useState(Centurion1_Idle);
+  const [isModalDisplay,setIsModalDisplay]=useState(false)
 
   const [color, setColor] = useState("#948b4e");
   const [color2, setColor2] = useState("#d4770d");
@@ -46,6 +60,29 @@ const LandingPage = () => {
   const sectionA = document.querySelector('.section-a')?.offsetTop;
   const sectionB = document.querySelector('.section-b')?.offsetTop;
   const sectionC = document.querySelector('.section-c')?.offsetTop;
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Add a listener for changes to the screen size
+    const mediaQuery = window.matchMedia("(max-width: 500px)");
+
+    // Set the initial value of the `isMobile` state variable
+    setIsMobile(mediaQuery.matches);
+
+    // Define a callback function to handle changes to the media query
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    // Add the callback function as a listener for changes to the media query
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    // Remove the listener when the component is unmounted
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -146,13 +183,18 @@ const LandingPage = () => {
     <>
     {/* <Navbar/> */}
       <Container fluid className="g-0">
+        <ToastContainer hideProgressBar={true} autoClose={1000}   />
+    {isModalDisplay && <CustomModal isModalDisplay={isModalDisplay}  setIsModalDisplay={setIsModalDisplay}/> }
         <div className="landingpage-video-div position-relative">
+        <video autoPlay loop  muted className="video">
+  <source src={videoBg} type="video/mp4" className="sorce"/>
+</video>
           <div
-            className="text-white text-center position-absolute w-100"
-            style={{ bottom: "20%", left: "50%", transform: "translateX(-50%)" }}
+            className="text-white text-center  w-100 heroBG"
+           
           >
             <h1
-              className="mb-0 heading"
+              className="mb-0 heading shadow-lg"
               style={{ fontSize: "90px", fontFamily: "font-iceland" }}
             >
               Siege Builders: Clash of Legends
@@ -170,7 +212,9 @@ const LandingPage = () => {
             <p className="mb-0 d-none d-lg-inline animate-delay" style={{ fontSize: "16px", letterSpacing:"1px" }}>
               Test your skills against the best players in the world and become
               the champion.
+              <br />
             </p>
+            <button onClick={()=>setIsModalDisplay(true)} className="py-3 text-capitalize">  Claim Your Airdrop </button>
           </div>
         </div>
         {/* ref={(el) => (paragraphRefs.current[0] = el)} */}
@@ -491,20 +535,24 @@ const LandingPage = () => {
         </div>
 
         <div id="gameplay" className="landingpage-bg4-div mt-5 mt-md-0 text-white">
-          <Row className="m-0 justify-content-around">
+          <Row className="m-0 justify-content-justify-content-around gap-0">
             <Col
               xs={12}
-              lg={5}
+              lg={6}
               className="order-2 order-lg-1 column1"
-              style={{ marginTop: "250px" }}
+              style={{ marginTop: "130px ",height:"500px", }}
             >
-              <div className="d-flex justify-content-center">
-                <img width="70%" src={mobile} alt="" />
+              <div className="d-flex justify-content-center align-items-center position-relative ">
+              <video  loop controls   className="desktopVideo" poster={poster}>
+  <source src={desktopVideo} type="video/mp4" />
+</video>
+                <img width="100%" height={"500px"} src={desktopPicture} alt="" />
+
               </div>
             </Col>
             <Col lg={6}
               className="order-1 order-lg-2 column2"
-              style={{ marginTop: "140px" }}
+              style={{ marginTop: "50px" }}
             >
               <div className="px-3 ps-lg-5 gameplay" style={{ marginTop: "70px" }}>
                 <h3
@@ -516,9 +564,7 @@ const LandingPage = () => {
                 >
                   GAMEPLAY
                 </h3>
-                <h1 style={{ fontFamily: "font-iceland", fontSize: "70px" }}>
-                  ADAPT ON THE GO
-                </h1>
+             
                 <p style={{ fontSize: "19px" }}>
                   Siege Builders: Clash of Legends offers an exhilarating
                   gameplay experience with four distinct game modes.
@@ -590,496 +636,15 @@ const LandingPage = () => {
             alt=""
           /> */}
 
-        <div className="landingpage-bg5-div" id="heroes">
-          <div
-            style={{ paddingTop: "150px" }}
-            className="text-center landingpage-bg5-div-inner"
-          >
-            <h3
-              style={{
-                fontSize: "24px",
-                fontWeight: "600",
-                letterSpacing: "2px",
-                color: "#b52231",
-              }}
-            >
-              PLAY IT YOUR WAY
-            </h3>
-            <h1 style={{ fontFamily: "font-iceland", fontSize: "70px" }}>
-              MEET THE HEROES
-            </h1>
-            <p style={{ fontSize: "20px", color: "#5c5d5e" }}>
-              In the world of Cryowar, mighty heroes wielding god-like
-              technology clash on sacred battlegrounds. Each has different
-              playstyle, skills, and story. Pair them in groups of two,
-              customize their powers and dominate the battlefield. Your way.
-            </p>
-          </div>
-        </div>
 
-        <div
-          className="landingpage-bg6-div"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-        >
-          <div className="landingpage-bg6-div-inner">
-            <ul
-              style={{ paddingTop: "80px" }}
-              className="nav nav-underline skin justify-content-center fs-2"
-            >
-              <li class="nav-item">
-                <a
-                  class="nav-link tabs"
-                  style={{ color: "#3b392f" }}
-                  onClick={() => changeBackground(1)}
-                  aria-current="page"
-                  id="1"
-                >
-                  SKIN 1
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link tabs"
-                  style={{ color: "#3b392f" }}
-                  onClick={() => changeBackground(2)}
-                  id="2"
-                >
-                  SKIN 2
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">SKIN 3 (SOON)</a>
-              </li>
-            </ul>
+    
 
-            <Row className="m-0 justify-content-around">
-              <Col className="order-2 order-md-1" lg={5}>
-                <div className="text-center text-md-start">
-                  <h1
-                    style={{
-                      fontFamily: "font-iceland",
-                      fontSize: "70px",
-                      color: `${color}`,
-                    }}
-                  >
-                    A.C.S HEAVY
-                  </h1>
-                  <p
-                    style={{
-                      fontSize: "19px",
-                      color: "#5b5c5c",
-                      letterSpacing: "1px",
-                    }}
-                  >
-                    A walking fortress with unprecedented might and resolve, who{" "}
-                    <br />
-                    combines ancient tactics with the annihilating firepower of
-                    the Gods.
-                  </p>
 
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Piercing Beam
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Heavy uses the weapon on his back to shoot a powerful beam
-                      that <br /> pierces anything on its path
-                    </p>
-                  </div>
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Testudo
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Heavy assumes a defensive stance that shields himself and
-                      all friendly <br />
-                      characters with a protective sphere that absorbs X damage
-                      points for X <br /> seconds
-                    </p>
-                  </div>
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Protective Artillery
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Heavy aims his rockets into the air and opens fire. The
-                      rockets split into <br />
-                      smaller projectiles that rain down in a very large radius.{" "}
-                      <br />
-                      The rockets cause explosions in the entire area of effect
-                    </p>
-                  </div>
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Playstyle
-                    </p>
-                    <p
-                      className="mb-0"
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Long Range, Defensive
-                    </p>
-                  </div>
-                </div>
-              </Col>
-              <Col lg={5} className="order-1 order-md-2">
-                <div className="">
-                  <img
-                    className="landingpage-bg6-div-img"
-                    width="100%"
-                    src={Heavy2}
-                    alt=""
-                  />
-                </div>
-              </Col>
-            </Row>
-          </div>
-        </div>
-
-        <div
-          className="landingpage-bg7-div"
-          style={{ backgroundImage: `url(${backgroundImage2})` }}
-        >
-          <div className="landingpage-bg7-div-inner">
-            <ul class="nav nav-underline justify-content-center fs-2 skin">
-              <li class="nav-item">
-                <a
-                  class="nav-link tabs"
-                  style={{ color: "black" }}
-                  onClick={() => changeBackgroundTwo(1)}
-                  aria-current="page"
-                  id="1"
-                >
-                  SKIN 1
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link tabs"
-                  style={{ color: "black" }}
-                  onClick={() => changeBackgroundTwo(2)}
-                  id="2"
-                >
-                  SKIN 2
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">SKIN 3 (SOON)</a>
-              </li>
-            </ul>
-
-            <Row className="m-0 justify-content-around">
-              <Col lg={5} className="">
-                <div>
-                  <img
-                    className="landingpage-bg7-div-img"
-                    width="100%"
-                    src={Valkyrie1}
-                    alt=""
-                  />
-                </div>
-              </Col>
-              <Col className="" lg={5}>
-                <div className="text-center text-md-start">
-                  <h1
-                    style={{
-                      fontFamily: "font-iceland",
-                      fontSize: "70px",
-                      color: `${color2}`,
-                    }}
-                  >
-                    WALKYRIE
-                  </h1>
-                  <p
-                    style={{
-                      fontSize: "19px",
-                      color: "#5b5c5c",
-                      letterSpacing: "1px",
-                    }}
-                  >
-                    Named after the mythical spirits who carry the souls of
-                    fallen warriors to the afterlife. Her light and dance-like
-                    movements lure adversaries close to her slashing blades like
-                    moths to the flame.
-                  </p>
-
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Piercing Beam
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Heavy uses the weapon on his back to shoot a powerful beam
-                      that <br /> pierces anything on its path
-                    </p>
-                  </div>
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Testudo
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Heavy assumes a defensive stance that shields himself and
-                      all friendly <br />
-                      characters with a protective sphere that absorbs X damage
-                      points for X <br /> seconds
-                    </p>
-                  </div>
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Protective Artillery
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Heavy aims his rockets into the air and opens fire. The
-                      rockets split into <br />
-                      smaller projectiles that rain down in a very large radius.{" "}
-                      <br />
-                      The rockets cause explosions in the entire area of effect
-                    </p>
-                  </div>
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Playstyle
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Long Range, Defensive
-                    </p>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </div>
-        </div>
-
-        <div
-          className="landingpage-bg8-div"
-          style={{ backgroundImage: `url(${backgroundImage3})` }}
-        >
-          <div className="landingpage-bg8-div-inner">
-            <ul
-              style={{ paddingTop: "80px" }}
-              class="nav nav-underline justify-content-center fs-2 skin"
-            >
-              <li class="nav-item">
-                <a
-                  class="nav-link tabs"
-                  style={{ color: "#3b392f" }}
-                  onClick={() => changeBackgroundThree(1)}
-                  aria-current="page"
-                  id="1"
-                >
-                  SKIN 1
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link tabs"
-                  style={{ color: "#3b392f" }}
-                  onClick={() => changeBackgroundThree(2)}
-                  id="2"
-                >
-                  SKIN 2
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">SKIN 3 (SOON)</a>
-              </li>
-            </ul>
-
-            <Row className="m-0 justify-content-around">
-              <Col className="order-2 order-md-1" lg={5}>
-                <div className="text-center text-md-start">
-                  <h1
-                    style={{
-                      fontFamily: "font-iceland",
-                      fontSize: "70px",
-                      color: `${color3}`,
-                    }}
-                  >
-                    CENTURION
-                  </h1>
-                  <p
-                    style={{
-                      fontSize: "19px",
-                      color: "#5b5c5c",
-                      letterSpacing: "1px",
-                    }}
-                  >
-                    A walking fortress with unprecedented might and resolve, who
-                    combines ancient tactics with the annihilating firepower of
-                    the Gods.
-                  </p>
-
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Piercing Beam
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Heavy uses the weapon on his back to shoot a powerful beam
-                      that pierces anything on its path
-                    </p>
-                  </div>
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Testudo
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Heavy assumes a defensive stance that shields himself and
-                      all friendly characters with a protective sphere that
-                      absorbs X damage points for X seconds
-                    </p>
-                  </div>
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Protective Artillery
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Heavy aims his rockets into the air and opens fire. The
-                      rockets split into smaller projectiles that rain down in a
-                      very large radius. The rockets cause explosions in the
-                      entire area of effect
-                    </p>
-                  </div>
-                  <div className="d-none d-md-inline">
-                    <p
-                      className="mb-0"
-                      style={{ fontWeight: "600", fontSize: "20px" }}
-                    >
-                      Playstyle
-                    </p>
-                    <p
-                      className="mb-0"
-                      style={{
-                        fontSize: "19px",
-                        color: "#5b5c5c",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      Long Range, Defensive
-                    </p>
-                  </div>
-                </div>
-              </Col>
-              <Col lg={5} className="order-1 order-md-2">
-                <div>
-                  <img
-                    className="landingpage-bg8-div-img"
-                    width="100%"
-                    src={image}
-                    alt=""
-                  />
-                </div>
-              </Col>
-            </Row>
-          </div>
-        </div>
-        <img
-          id="ourteam"
-          className="transittest1"
-          style={{ marginTop: "-80px" }}
-          width="100%"
-          src={transittest1}
-          alt=""
-        />
+ 
 
         <div
           className="text-white text-center aboutus_main_div"
-          style={{ marginBottom: "100px" }}
+          style={{ marginBottom: "100px",marginTop:"100px" }}
         >
           <h1
             style={{
@@ -1093,82 +658,150 @@ const LandingPage = () => {
           </h1>
 
           <Row className="m-0 mb-5">
-            <Col sm={4} md={3}>
+            <Col sm={3} md={3}>
               <div className="mb-5 aboutUs-div">
                 <img
                   className="mb-2 mb-md-4"
                   style={{
-                    width: "220px",
-                    height: "220px",
+                    width: "160px",
+                    height: "160px",
                     borderRadius: "50%",
                   }}
-                  src={bw_IMG_5246}
-                  alt=""
+                  src={team1}
+                  alt="Mauro Blanco - CEO"
                 />
                 <p style={{ fontFamily: "font-iceland", fontSize: "23px" }}>
-                  NIKOLAI PETROVICH (CEO)
+                Mauro Blanco - CEO
                 </p>
-                <Icon className="instagram" fontSize="40px" icon="mdi:linkedin" />
+                <a href="https://www.linkedin.com/in/mauro-blanco-69b8b793/" target="_blank" style={{color:"white"}}><Icon className="instagram" fontSize="40px" icon="mdi:linkedin"  /></a>
               </div>
             </Col>
-            <Col sm={4} md={3}>
+            <Col sm={3} md={3}>
               <div className="mb-5 aboutUs-div">
                 <img
                   className="mb-2 mb-md-4"
                   style={{
-                    width: "220px",
-                    height: "220px",
+                    width: "160px",
+                    height: "160px",
                     borderRadius: "50%",
                   }}
-                  src={bw_IMG_5246}
-                  alt=""
+                  src={team2}
+                  alt="Safar Ali Nathani - CMO "
                 />
                 <p style={{ fontFamily: "font-iceland", fontSize: "23px" }}>
-                  NIKOLAI PETROVICH ( CEO)
+                Safar Ali Nathani - CMO 
                 </p>
-                <Icon className="instagram" fontSize="40px" icon="mdi:linkedin" />
+                <a href="https://www.linkedin.com/in/safaralinathani/" target="_blank" style={{color:"white"}}><Icon className="instagram" fontSize="40px" icon="mdi:linkedin"  /></a>
               </div>
             </Col>
-            <Col sm={4} md={3}>
+            <Col sm={3} md={3}>
               <div className="mb-5 aboutUs-div">
                 <img
                   className="mb-2 mb-md-4"
                   style={{
-                    width: "220px",
-                    height: "220px",
+                    width: "160px",
+                    height: "160px",
                     borderRadius: "50%",
                   }}
-                  src={bw_IMG_5246}
-                  alt=""
+                  src={team3}
+                  alt="Basshar Okal  -   CCO  - "
                 />
                 <p style={{ fontFamily: "font-iceland", fontSize: "23px" }}>
-                  NIKOLAI PETROVICH
+                Basshar Okal  -   CCO  - 
                   (CEO)
                 </p>
-                <Icon className="instagram" fontSize="40px" icon="mdi:linkedin" />
+                <a href="https://www.linkedin.com/in/basshar-okal-48151223b/" target="_blank" style={{color:"white"}}><Icon className="instagram" fontSize="40px" icon="mdi:linkedin"  /></a>
               </div>
             </Col>
-            <Col sm={4} md={3}>
+            <Col sm={3} md={3}>
               <div className="mb-5 aboutUs-div">
                 <img
                   className="mb-2 mb-md-4"
                   style={{
-                    width: "220px",
-                    height: "220px",
+                    width: "160px",
+                    height: "160px",
                     borderRadius: "50%",
+                    objectFit:"cover",
+
+
                   }}
-                  src={bw_IMG_5246}
-                  alt=""
+                  src={team4}
+                  alt="Wahab Ahamad - CTO"
                 />
                 <p style={{ fontFamily: "font-iceland", fontSize: "23px" }}>
-                  NIKOLAI PETROVICH
-                  (CEO)
+                Wahab Ahamad - CTO
                 </p>
-                <Icon className="instagram" fontSize="40px" icon="mdi:linkedin" />
+                <a href="https://www.linkedin.com/in/wahab-ahmad-83a27584/" target="_blank" style={{color:"white"}}><Icon className="instagram" fontSize="40px" icon="mdi:linkedin"  /></a>
+
+              </div>
+            </Col>
+            <Col sm={3} md={3}>
+              <div className="mb-5 aboutUs-div">
+                <img
+                  className="mb-2 mb-md-4"
+                  style={{
+                    width: "160px",
+                    height: "160px",
+                    borderRadius: "50%",
+                    objectFit:"cover",
+
+
+                  }}
+                  src={team5}
+                  alt="Wahab Ahamad - CTO"
+                />
+                <p style={{ fontFamily: "font-iceland", fontSize: "23px" }}>
+                Rehan  - Blockchain expert
+                </p>
+                <a href="https://www.linkedin.com/in/rehan-shahjahan" target="_blank" style={{color:"white"}}><Icon className="instagram" fontSize="40px" icon="mdi:linkedin"  /></a>
+
+              </div>
+            </Col>
+            <Col sm={3} md={3}>
+              <div className="mb-5 aboutUs-div">
+                <img
+                  className="mb-2 mb-md-4"
+                  style={{
+                    width: "160px",
+                    height: "160px",
+                    borderRadius: "50%",
+                    objectFit:"cover",
+
+
+                  }}
+                  src={team6}
+                  alt="Wahab Ahamad - CTO"
+                />
+                <p style={{ fontFamily: "font-iceland", fontSize: "23px" }}>
+                Felix vaughn -  Business developer
+                </p>
+                <a href="https://twitter.com/Felixvaughn04?t=Ya7pCJFUivo2Ff8xy9gruA&s=09" target="_blank" style={{color:"white"}}><Icon className="instagram" fontSize="40px" icon="mdi:twitter"  /></a>
 
               </div>
             </Col>
           </Row>
+
+          <div className="partners mt-5  " style={{ padding:"60px 0px",   }}>
+          <h1
+            style={{
+              fontSize: "70px",
+              letterSpacing: "2px",
+              fontFamily: "font-iceland",
+              marginBottom: "80px",
+            }}
+          >
+            OUR PARTNERS
+          </h1>
+          <div style={{flexWrap:"wrap"}} className="partner_container d-flex  gap-5 justify-content-center align-content-center gap-2">
+<img src={chatLink} alt="" className="rounded-circle " style={{height:"110px",width:"110px",objectFit:"cover"}}  />
+<img src={polygon} alt="" className="rounded-circle " style={{height:"110px",width:"110px",objectFit:"cover"}} />
+<img src={immutable} alt="" className="rounded-circle " style={{height:"110px",width:"110px",objectFit:"cover"}} />
+<img src={bitMark} alt="" className="rounded-circle " style={{height:"110px",width:"110px",objectFit:"cover"}} />
+
+
+
+          </div>
+          </div>
 
           {/* <div
             className="py-5 d-none d-md-block aboutUs-details"
@@ -1236,9 +869,12 @@ const LandingPage = () => {
             </p>
           </div> */}
         </div>
-
+       
         <Community />
+
       </Container>
+      
+
     </>
   );
 };
