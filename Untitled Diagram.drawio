@@ -334,7 +334,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="YAX5eilTSyL_kQAmLxaM" name="Page-3">
-    <mxGraphModel dx="467" dy="222" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="453" dy="237" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -352,6 +352,12 @@
         </mxCell>
         <mxCell id="2Z6Ub3m3RSQadIl3EZ4O-3" value="assign-badge()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="480" y="270" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2Z6Ub3m3RSQadIl3EZ4O-5" value="&lt;span style=&quot;color: light-dark(rgb(46, 194, 126), rgb(237, 237, 237));&quot;&gt;POST&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="490" y="140" width="10" as="geometry" />
+        </mxCell>
+        <mxCell id="2Z6Ub3m3RSQadIl3EZ4O-6" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;color: light-dark(rgb(165, 29, 45), rgb(237, 237, 237));&quot;&gt;CRON&lt;/span&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="465" y="240" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
